@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} Hello {% endblock %}
+
+{% block page_content %}
+    <h3 style="color:#7fffd4">Hello {{ username }}</h3>
+
+     <ul>
+    {% for name in list %}
+       <li><a href="/file?name={{name}}&files=./static/Uploads/{{name}}" >{{ name }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <h4 style="color:#7fffd4">Upload your new files</h4>
+
+    <form action="{{'uplfile'}}" method="post" enctype="multipart/form-data">
+        <input style="font-size: 20px" type="file" name="file" />
+        <br />
+        <input style="font-size: 20px" type="submit" value="submit" />
+    </form>
+
+{% endblock %}
